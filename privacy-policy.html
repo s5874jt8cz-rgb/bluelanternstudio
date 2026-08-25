@@ -40,13 +40,18 @@
     </tr>
     <tr>
       <td>Vehicle Identification Numbers (VINs)</td>
-      <td>Auto-filling vehicle details via a VIN lookup</td>
-      <td>Encrypted on your device; briefly sent to our server to query the VIN, using a hashed (not plaintext) form for rate-limiting</td>
+      <td>Auto-filling vehicle details via a VIN lookup. Decoded results are cached server-side for 120 days so repeat lookups of the same VIN (by you or other users) don't re-query the government database; a hashed (not plaintext) form of your IP address and the VIN is kept for up to 30 days solely to enforce per-tier lookup rate limits, then purged.</td>
+      <td>Encrypted on your device; briefly sent to our server to query the VIN</td>
     </tr>
     <tr>
       <td>Maintenance &amp; fuel cost records</td>
       <td>Tracking spending over time</td>
       <td>On your device only</td>
+    </tr>
+    <tr>
+      <td>Accident report details you enter (driver/witness names &amp; contact info, licence plate, insurance policy number, police report number, other-party details, incident description)</td>
+      <td>Letting you keep a record of an accident for your own reference and insurance claims</td>
+      <td>On your device only, encrypted at rest</td>
     </tr>
     <tr>
       <td>Coarse (approximate) location</td>
@@ -71,7 +76,7 @@
 
   <h2>How your data is protected</h2>
   <ul>
-    <li>Vehicle photos, documents, and VINs are encrypted on your device using your device's secure hardware-backed storage.</li>
+    <li>Vehicle photos, documents, and VINs are encrypted at rest on your device, with the encryption key protected by your device's secure storage (hardware-backed on devices that support it). Briefly viewing or exporting one of these files decrypts a temporary copy, which is then protected by your device's own operating-system-level file protections (rather than the app's own encryption) until it's deleted.</li>
     <li>Sensitive folders are excluded from iCloud/Google device backups by design — your encrypted export (see below) is the intended way to back up your data.</li>
     <li>Viewing saved documents can require Face ID / fingerprint / passcode confirmation, depending on your settings.</li>
   </ul>
