@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Auto-Mobile</title>
+<link rel="icon" href="favicon.png">
+<link rel="stylesheet" href="shared.css">
+</head>
+<body>
+
+<div class="header-banner">
+  <img src="logo.png" alt="Auto-Mobile — Manage. Maintain. Drive Confidently.">
+</div>
+<div class="page-nav">
+  <a href="privacy-policy.html" class="active">Privacy Policy</a>
+  <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+  <a href="delete-account.html">Delete Account</a>
+</div>
+
+<main>
+  <h1>Privacy Policy</h1>
+  <p class="updated">Last updated: 18 August 2026</p>
+
+  <div class="card info">
+    <p>Auto-Mobile is built to keep your vehicle data on your device by default. This page explains exactly what we collect, why, and how you can delete it.</p>
+  </div>
+
+  <h2>Who we are</h2>
+  <p>Auto-Mobile ("we," "our," "the app") is a vehicle-maintenance tracking app for iOS and Android, published by Bluelanternstudios. Questions about this policy can be sent to <a href="mailto:supportauto_mobile@bluelanternstudio.com">supportauto_mobile@bluelanternstudio.com</a>.</p>
+
+  <h2>What we collect</h2>
+  <p>Auto-Mobile is local-first: most of your data is stored only on your device, encrypted, and never sent anywhere unless described below.</p>
+  <table>
+    <tr><th>Data</th><th>What it's for</th><th>Where it lives</th></tr>
+    <tr>
+      <td>Vehicle photos, parking-spot photos, scanned documents &amp; receipts</td>
+      <td>Letting you record and find your vehicle's details, receipts, and where you parked</td>
+      <td>On your device only, encrypted at rest</td>
+    </tr>
+    <tr>
+      <td>Vehicle Identification Numbers (VINs)</td>
+      <td>Auto-filling vehicle details via a VIN lookup</td>
+      <td>Encrypted on your device; briefly sent to our server to query the VIN, using a hashed (not plaintext) form for rate-limiting</td>
+    </tr>
+    <tr>
+      <td>Maintenance &amp; fuel cost records</td>
+      <td>Tracking spending over time</td>
+      <td>On your device only</td>
+    </tr>
+    <tr>
+      <td>Coarse (approximate) location</td>
+      <td>Dropping a pin at your parking spot so you can find your way back</td>
+      <td>On your device only — we never request precise or background/"always" location</td>
+    </tr>
+    <tr>
+      <td>An anonymous account identifier</td>
+      <td>Letting the app recognize your device for cloud features (e.g. account deletion) without asking for a name or email</td>
+      <td>Our authentication provider (Supabase)</td>
+    </tr>
+    <tr>
+      <td>Subscription &amp; purchase status</td>
+      <td>Unlocking paid features you've purchased</td>
+      <td>Processed by Apple/Google and our subscription provider (RevenueCat)</td>
+    </tr>
+  </table>
+
+  <div class="card warn">
+    <p><strong>What we don't do:</strong> we don't show ads, we don't use advertising or tracking SDKs, and we don't sell your data. We don't collect your name, email, or contacts unless you choose to enter them yourself into a note or document field.</p>
+  </div>
+
+  <h2>How your data is protected</h2>
+  <ul>
+    <li>Vehicle photos, documents, and VINs are encrypted on your device using your device's secure hardware-backed storage.</li>
+    <li>Sensitive folders are excluded from iCloud/Google device backups by design — your encrypted export (see below) is the intended way to back up your data.</li>
+    <li>Viewing saved documents can require Face ID / fingerprint / passcode confirmation, depending on your settings.</li>
+  </ul>
+
+  <h2>Manual backup &amp; export</h2>
+  <p>You can export an encrypted copy of your data (a "Backup") from within the app, protected by a passphrase you choose. This file is created only when you ask for it, stays on your device or wherever you choose to save/share it, and is never automatically uploaded anywhere by us.</p>
+
+  <h2>Third parties we use</h2>
+  <table>
+    <tr><th>Service</th><th>Purpose</th></tr>
+    <tr><td>Supabase</td><td>Authentication and account deletion for the anonymous account identifier described above</td></tr>
+    <tr><td>RevenueCat</td><td>Managing and verifying in-app subscription purchases</td></tr>
+    <tr><td>NHTSA (National Highway Traffic Safety Administration)</td><td>Public VIN-decoding lookups, via our server</td></tr>
+    <tr><td>Apple App Store / Google Play</td><td>Processing subscription payments — we never see or store your payment details</td></tr>
+  </table>
+
+  <h2>Your choices</h2>
+  <ul>
+    <li><strong>Delete your data locally:</strong> remove records, photos, or documents at any time from within the app.</li>
+    <li><strong>Delete your account:</strong> use the in-app "Delete Account" option in Settings, or see our <a href="delete-account.html">account deletion page</a> if you no longer have the app installed.</li>
+    <li><strong>Uninstall:</strong> removing the app deletes all locally-stored data (photos, documents, records) from your device, unless you've saved an exported backup elsewhere.</li>
+  </ul>
+
+  <h2>Children's privacy</h2>
+  <p>Auto-Mobile is not directed at children and we do not knowingly collect data from children under 13 (or the relevant minimum age in your region).</p>
+
+  <h2>Changes to this policy</h2>
+  <p>If we make material changes to this policy, we'll update the date at the top of this page and, where required, notify you in the app.</p>
+
+  <h2>Contact us</h2>
+  <p>Questions, requests, or concerns about your data: <a href="mailto:supportauto_mobile@bluelanternstudio.com">supportauto_mobile@bluelanternstudio.com</a></p>
+</main>
+
+<footer>
+  © 2026 Bluelanternstudios. All rights reserved.
+</footer>
+
+</body>
+</html>
