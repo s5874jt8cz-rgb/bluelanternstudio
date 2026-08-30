@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Delete Your Account — Auto-Mobile</title>
+<title>Delete Your Data or Account — Auto-Mobile</title>
 <link rel="icon" href="favicon.png">
 <link rel="stylesheet" href="shared.css">
 </head>
@@ -19,14 +19,24 @@
 </div>
 
 <main>
-  <h1>Delete Your Account</h1>
-  <p class="updated">Last updated: 18 August 2026</p>
+  <h1>Delete Your Data or Account</h1>
+  <p class="updated">Last updated: 30 August 2026</p>
 
   <div class="card info">
-    <p>You can delete your Auto-Mobile account whether or not you still have the app installed. Deleting your account removes your cloud-side account identifier immediately. Subscription-linked records held by our services are typically removed within 24 hours; in rare cases involving a third-party billing provider this can take longer, and we retry automatically for several days. If it still hasn't succeeded after that, it's flagged for our support team to complete manually — your account identifier is deleted immediately either way, so this only affects how quickly the linked subscription record is cleared. Deleting your account does not require creating a new account or logging in anywhere to request it.</p>
+    <p>Auto-Mobile ("we," "our"), published by Bluelanternstudios, offers two separate options: <strong>Delete all data</strong> erases everything the app has stored on your device but keeps your anonymous account, and <strong>Delete Account</strong> removes your cloud-side account identifier and its subscription record. You can use either, both, or neither. Neither option requires creating a new account or logging in anywhere to request it.</p>
+    <p>Deleting your account removes your cloud-side account identifier immediately. Subscription-linked records held by our services are typically removed within 24 hours; in rare cases involving a third-party billing provider this can take longer, and we retry automatically for several days. If it still hasn't succeeded after that, it's flagged for our support team to complete manually — your account identifier is deleted immediately either way, so this only affects how quickly the linked subscription record is cleared.</p>
   </div>
 
-  <h2>Option 1: Delete from within the app</h2>
+  <h2>Delete all data (on-device data, keeps your account)</h2>
+  <p>This erases everything Auto-Mobile has saved on your device and cannot be undone. Your anonymous account and any active subscription are not affected.</p>
+  <ol class="step-list">
+    <li>Open Auto-Mobile and go to <strong>Settings</strong>.</li>
+    <li>Tap <strong>Delete all data</strong>.</li>
+    <li>Confirm at both prompts.</li>
+    <li>Every vehicle, document, photo, receipt, maintenance and fuel record, parking spot, accident report, reminder and app setting stored on the device is deleted immediately, scheduled maintenance/parking reminders are cancelled, and your in-app annual usage allowances reset. Encrypted backup files you exported and saved elsewhere are not touched.</li>
+  </ol>
+
+  <h2>Delete Account — Option 1: from within the app</h2>
   <p>This is the fastest way if you still have Auto-Mobile installed.</p>
   <ol class="step-list">
     <li>Open Auto-Mobile and go to <strong>Settings</strong>.</li>
@@ -35,7 +45,7 @@
     <li>Your account is deleted immediately. Note: this deletes your cloud account identifier and subscription record — data stored only on your device isn't affected by this step and can be removed separately by uninstalling the app or deleting individual records.</li>
   </ol>
 
-  <h2>Option 2: Request deletion without the app</h2>
+  <h2>Delete Account — Option 2: request deletion without the app</h2>
   <p>If you no longer have Auto-Mobile installed, email us and we'll process the deletion on our end.</p>
   <div class="card">
     <p><strong>Send a deletion request to:</strong><br>
@@ -46,11 +56,13 @@
 
   <h2>What gets deleted</h2>
   <table>
-    <tr><th>Data</th><th>Deleted on account deletion?</th></tr>
-    <tr><td>Your anonymous cloud account identifier</td><td>Yes — removed immediately</td></tr>
-    <tr><td>Subscription/purchase records tied to your account</td><td>Yes, from our systems — typically within 24 hours, occasionally longer; the App Store/Play Store retains its own purchase history per their policies</td></tr>
-    <tr><td>Vehicle records, photos, documents stored on your device</td><td>Not automatically — this data lives only on your device. Uninstall the app or delete records individually to remove it</td></tr>
-    <tr><td>Any encrypted backup files you've exported and saved elsewhere</td><td>Not automatically — you control where those files are saved and should delete them yourself if desired</td></tr>
+    <tr><th>Data</th><th>Deleted by "Delete all data"?</th><th>Deleted by "Delete Account"?</th></tr>
+    <tr><td>Vehicle records, photos, documents, receipts, maintenance/fuel records, parking spots, accident reports, reminders and app settings stored on your device</td><td>Yes — erased from the device immediately</td><td>No — this data lives only on your device and is not touched by account deletion. Use "Delete all data", delete records individually, or uninstall the app</td></tr>
+    <tr><td>Scheduled maintenance and parking reminders (local notifications)</td><td>Yes — cancelled</td><td>No</td></tr>
+    <tr><td>Your anonymous cloud account identifier</td><td>No — your account is kept</td><td>Yes — removed immediately</td></tr>
+    <tr><td>Subscription/purchase records tied to your account</td><td>No</td><td>Yes, from our systems — typically within 24 hours, occasionally longer; the App Store/Play Store retains its own purchase history per their policies</td></tr>
+    <tr><td>Hashed VIN-lookup rate-limit records held on our server</td><td colspan="2">Not affected by either option — these contain no name or email, are used only to enforce lookup limits, and are purged automatically on our normal schedule (within 30 days). Your in-app annual usage allowance is stored on your device and resets when you use "Delete all data".</td></tr>
+    <tr><td>Any encrypted backup files you've exported and saved elsewhere</td><td>No — you control where those files are saved and should delete them yourself if desired</td><td>No — as above</td></tr>
   </table>
 
   <h2>Questions</h2>
