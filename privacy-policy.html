@@ -20,7 +20,7 @@
 
 <main>
   <h1>Privacy Policy</h1>
-  <p class="updated">Last updated: 30 August 2026</p>
+  <p class="updated">Last updated: 2 September 2026</p>
 
   <div class="card info">
     <p>Auto-Mobile is built to keep your vehicle data on your device by default. This page explains exactly what we collect, why, and how you can delete it.</p>
@@ -40,13 +40,18 @@
     </tr>
     <tr>
       <td>Vehicle Identification Numbers (VINs)</td>
-      <td>Auto-filling vehicle details via a VIN lookup. Decoded results are cached server-side for 120 days so repeat lookups of the same VIN (by you or other users) don't re-query the government database; a hashed (not plaintext) form of your IP address and the VIN is kept for up to 30 days solely to enforce per-tier lookup rate limits, then purged.</td>
+      <td>Auto-filling vehicle details via a VIN lookup. Decoded results are cached on our server for up to 120 days, keyed by a hashed (not plaintext) form of the VIN, so repeat lookups of the same VIN &mdash; by you or any other user &mdash; don't re-query the government database. This cache is shared between all users and holds no link to your identity. Separately, to enforce per-tier lookup rate limits, we keep short-lived counter rows tied to a hashed form of your IP address or your anonymous account identifier &mdash; these hold counts only, no VIN and no plaintext IP, and are purged within 30 days.</td>
       <td>Encrypted on your device; briefly sent to our server to query the VIN</td>
     </tr>
     <tr>
       <td>Maintenance &amp; fuel cost records</td>
       <td>Tracking spending over time</td>
-      <td>On your device only</td>
+      <td>On your device only, except that when you turn on Calendar Sync a reminder's title and notes are written to your device calendar (see below)</td>
+    </tr>
+    <tr>
+      <td>Maintenance reminder title &amp; notes (only when you enable Calendar Sync)</td>
+      <td>Adding your maintenance reminders to your device's calendar as a one-way copy</td>
+      <td>Written to your device calendar. On iOS, if your device has no on-device (local) calendar account, the event is created under your default calendar account instead, which may sync it to iCloud or Google via that account. The reminder text may therefore leave your device via your own calendar account. Turning off Calendar Sync stops new events being written; you can delete the app's calendar and its events at any time.</td>
     </tr>
     <tr>
       <td>Accident report details you enter (driver/witness names &amp; contact info, licence plate, insurance policy number, police report number, other-party details, incident description)</td>
@@ -56,12 +61,17 @@
     <tr>
       <td>Coarse (approximate) location</td>
       <td>Dropping a pin at your parking spot so you can find your way back</td>
-      <td>On your device only — we never request precise or background/"always" location</td>
+      <td>Stored on your device only — we only ever ask for while-using location (never background or "always"), and we ask the system for approximate accuracy. On iOS, if you have granted this app precise location in your system settings, the saved pin can be as precise as your device provides; either way we never send the coordinates to our servers. If you tap "Directions" to a saved spot, that spot's coordinates are handed to your device's maps app (Apple Maps or Google Maps) to draw the route; that hand-off is governed by that app's own privacy policy.</td>
     </tr>
     <tr>
       <td>An anonymous account identifier</td>
       <td>Letting the app recognize your device for cloud features (e.g. account deletion) without asking for a name or email</td>
       <td>Our authentication provider (Supabase)</td>
+    </tr>
+    <tr>
+      <td>Diagnostic error reports</td>
+      <td>Spotting crashes and failed data upgrades after an app update so we can fix them. Each report contains the app version and build number, your device platform and OS version, a random install identifier (separate from your account identifier), the error's type (for example "TypeError") and which part of the app was running, and one-way hashes of the error's message and stack trace &mdash; never the raw message or stack text. Our server also adds a hashed form of your IP address. No advertising or analytics; no third-party crash SDK.</td>
+      <td>Sent to our server (Supabase) only when the app hits a serious error; purged within 30 days</td>
     </tr>
     <tr>
       <td>Subscription &amp; purchase status</td>
@@ -97,7 +107,7 @@
   <h2>Your choices</h2>
   <ul>
     <li><strong>Delete your data locally:</strong> remove records, photos, or documents individually at any time from within the app, or use <strong>Settings &gt; Delete all data</strong> to erase everything the app has stored on your device at once (this keeps your anonymous account and any subscription).</li>
-    <li><strong>Delete your account:</strong> use the in-app "Delete Account" option in Settings, or see our <a href="delete-account.html">data &amp; account deletion page</a> if you no longer have the app installed.</li>
+    <li><strong>Delete your account:</strong> use the in-app "Delete Account" option in Settings, or see our <a href="delete-account.html">data &amp; account deletion page</a> if you no longer have the app installed. If the automated cleanup of your subscription record with our subscription provider permanently fails, a minimal record (an internal user identifier only — no name or email) is kept in an internal error queue until support resolves it manually, and is then purged.</li>
     <li><strong>Uninstall:</strong> removing the app deletes all locally-stored data (photos, documents, records) from your device, unless you've saved an exported backup elsewhere.</li>
   </ul>
 

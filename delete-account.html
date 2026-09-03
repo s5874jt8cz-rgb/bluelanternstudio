@@ -20,7 +20,7 @@
 
 <main>
   <h1>Delete Your Data or Account</h1>
-  <p class="updated">Last updated: 30 August 2026</p>
+  <p class="updated">Last updated: 2 September 2026</p>
 
   <div class="card info">
     <p>Auto-Mobile ("we," "our"), published by Bluelanternstudios, offers two separate options: <strong>Delete all data</strong> erases everything the app has stored on your device but keeps your anonymous account, and <strong>Delete Account</strong> removes your cloud-side account identifier and its subscription record. You can use either, both, or neither. Neither option requires creating a new account or logging in anywhere to request it.</p>
@@ -33,10 +33,10 @@
     <li>Open Auto-Mobile and go to <strong>Settings</strong>.</li>
     <li>Tap <strong>Delete all data</strong>.</li>
     <li>Confirm at both prompts.</li>
-    <li>Every vehicle, document, photo, receipt, maintenance and fuel record, parking spot, accident report, reminder and app setting stored on the device is deleted immediately, scheduled maintenance/parking reminders are cancelled, and your in-app annual usage allowances reset. Encrypted backup files you exported and saved elsewhere are not touched.</li>
+    <li>Every vehicle, document, photo, receipt, maintenance and fuel record, parking spot, accident report, reminder and app setting stored on the device is deleted immediately, and scheduled maintenance/parking reminders are cancelled. Your annual VIN-decode allowance is tracked on our server against your anonymous account and is <strong>not</strong> reset by this. Encrypted backup files you exported and saved elsewhere are not touched.</li>
   </ol>
 
-  <h2>Delete Account — Option 1: from within the app</h2>
+  <h2>Delete Account &mdash; Option 1: from within the app</h2>
   <p>This is the fastest way if you still have Auto-Mobile installed.</p>
   <ol class="step-list">
     <li>Open Auto-Mobile and go to <strong>Settings</strong>.</li>
@@ -45,12 +45,13 @@
     <li>Your account is deleted immediately. Note: this deletes your cloud account identifier and subscription record — data stored only on your device isn't affected by this step and can be removed separately by uninstalling the app or deleting individual records.</li>
   </ol>
 
-  <h2>Delete Account — Option 2: request deletion without the app</h2>
+  <h2>Delete Account &mdash; Option 2: request deletion without the app</h2>
   <p>If you no longer have Auto-Mobile installed, email us and we'll process the deletion on our end.</p>
   <div class="card">
     <p><strong>Send a deletion request to:</strong><br>
     <a href="mailto:supportauto_mobile@bluelanternstudio.com?subject=Account%20Deletion%20Request">supportauto_mobile@bluelanternstudio.com</a></p>
-    <p>Your account is anonymous — we don't collect an email or name — so please include your <strong>Account ID</strong> so we can locate it. You can find this in the app under <strong>Settings &gt; Account</strong>, just above the Delete Account button. We'll confirm once the deletion is complete, typically within 14 business days.</p>
+    <p>Your account is anonymous — we don't collect an email or name — so we need a way to locate it. Your <strong>Account ID</strong> is preferred: you can find it in the app under <strong>Settings &gt; Account</strong>, just above the Delete Account button. If you no longer have the app and can't retrieve your Account ID, instead include your App Store or Google Play <strong>purchase/order number</strong> for an Auto-Mobile subscription (or the email address on the receipt), which we can use to look up the linked account. We'll confirm once the deletion is complete, typically within 14 business days.</p>
+    <p>If the automated cleanup of your subscription record with our subscription provider permanently fails, a minimal record (an internal user identifier only — no name or email) is kept in an internal error queue until our support team resolves it manually, and is then purged.</p>
     <a class="button" href="mailto:supportauto_mobile@bluelanternstudio.com?subject=Account%20Deletion%20Request">Request Account Deletion</a>
   </div>
 
@@ -61,7 +62,10 @@
     <tr><td>Scheduled maintenance and parking reminders (local notifications)</td><td>Yes — cancelled</td><td>No</td></tr>
     <tr><td>Your anonymous cloud account identifier</td><td>No — your account is kept</td><td>Yes — removed immediately</td></tr>
     <tr><td>Subscription/purchase records tied to your account</td><td>No</td><td>Yes, from our systems — typically within 24 hours, occasionally longer; the App Store/Play Store retains its own purchase history per their policies</td></tr>
-    <tr><td>Hashed VIN-lookup rate-limit records held on our server</td><td colspan="2">Not affected by either option — these contain no name or email, are used only to enforce lookup limits, and are purged automatically on our normal schedule (within 30 days). Your in-app annual usage allowance is stored on your device and resets when you use "Delete all data".</td></tr>
+    <tr><td>Per-account VIN-lookup rate-limit counters (daily and annual counts tied to your anonymous account identifier — no VIN, no name, no email)</td><td>No</td><td>Yes — removed with the account (they reference your account identifier and are cascade-deleted). Purged within 30 days (daily) regardless.</td></tr>
+    <tr><td>IP-based VIN-lookup rate-limit counters (a hashed form of an IP address only — no VIN, no account link, no name or email)</td><td colspan="2">Not affected by either option — these hold no account link, are used only to enforce lookup limits, and are purged automatically within 30 days.</td></tr>
+    <tr><td>Diagnostic error reports (app/OS version, a random install identifier, the error type and which part of the app was running, and hashes of an error's message and stack; plus a server-added hashed IP)</td><td colspan="2">Not affected by either option — these are keyed to a random install identifier, not your account, and are purged automatically within 30 days. See the Privacy Policy for the full contents.</td></tr>
+    <tr><td>Your annual VIN-decode allowance</td><td>No — it is tracked on our server against your anonymous account, which "Delete all data" keeps</td><td>Yes — the counter is removed with the account. Creating a new anonymous account starts new counters; this is not intended as a way to reset the limit.</td></tr>
     <tr><td>Any encrypted backup files you've exported and saved elsewhere</td><td>No — you control where those files are saved and should delete them yourself if desired</td><td>No — as above</td></tr>
   </table>
 
