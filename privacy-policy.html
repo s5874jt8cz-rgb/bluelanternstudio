@@ -27,7 +27,7 @@
   </div>
 
   <h2>Who we are</h2>
-  <p>Auto-Mobile ("we," "our," "the app") is a vehicle-maintenance tracking app for iOS and Android, published by Bluelanternstudios. Questions about this policy can be sent to <a href="mailto:supportauto_mobile@bluelanternstudio.com">supportauto_mobile@bluelanternstudio.com</a>.</p>
+  <p>Auto-Mobile ("we," "our," "the app") is a vehicle-maintenance tracking app for iOS and Android, published by Bluelanternstudio. Questions about this policy can be sent to <a href="mailto:supportauto_mobile@bluelanternstudio.com">supportauto_mobile@bluelanternstudio.com</a>.</p>
 
   <h2>What we collect</h2>
   <p>Auto-Mobile is local-first: most of your data is stored only on your device, encrypted, and never sent anywhere unless described below.</p>
@@ -40,7 +40,7 @@
     </tr>
     <tr>
       <td>Vehicle Identification Numbers (VINs)</td>
-      <td>Auto-filling vehicle details via a VIN lookup. Decoded results are cached on our server for up to 120 days, keyed by a hashed (not plaintext) form of the VIN, so repeat lookups of the same VIN &mdash; by you or any other user &mdash; don't re-query the government database. This cache is shared between all users and holds no link to your identity. Separately, to enforce per-tier lookup rate limits, we keep short-lived counter rows tied to a hashed form of your IP address or your anonymous account identifier &mdash; these hold counts only, no VIN and no plaintext IP, and are purged within 30 days.</td>
+      <td>Auto-filling vehicle details via a VIN lookup. Decoded results are cached on our server for up to 120 days, keyed by a hashed (not plaintext) form of the VIN, so repeat lookups of the same VIN &mdash; by you or any other user &mdash; don't re-query the government database. This cache is shared between all users and holds no link to your identity. Separately, to enforce per-tier lookup rate limits, we keep counter rows tied to a hashed form of your IP address or your anonymous account identifier &mdash; these hold counts only, no VIN and no plaintext IP. The short-lived daily/IP counters are purged within 30 days; the annual per-account counter persists for the year it covers (or until you delete your account, whichever comes first).</td>
       <td>Encrypted on your device; briefly sent to our server to query the VIN</td>
     </tr>
     <tr>
@@ -107,7 +107,7 @@
   <h2>Your choices</h2>
   <ul>
     <li><strong>Delete your data locally:</strong> remove records, photos, or documents individually at any time from within the app, or use <strong>Settings &gt; Delete all data</strong> to erase everything the app has stored on your device at once (this keeps your anonymous account and any subscription).</li>
-    <li><strong>Delete your account:</strong> use the in-app "Delete Account" option in Settings, or see our <a href="delete-account.html">data &amp; account deletion page</a> if you no longer have the app installed. If the automated cleanup of your subscription record with our subscription provider permanently fails, a minimal record (an internal user identifier only — no name or email) is kept in an internal error queue until support resolves it manually, and is then purged.</li>
+    <li><strong>Delete your account:</strong> use the in-app "Delete Account" option in Settings, or see our <a href="delete-account.html">data &amp; account deletion page</a> if you no longer have the app installed. If the automated cleanup of your subscription record with our subscription provider permanently fails, an internal record (an internal user identifier, a subscription-provider customer identifier, and diagnostic error text — no name, email, or payment details) is kept in an internal error queue until support resolves it manually. Once resolved (or after retries are exhausted), that record moves to an internal audit log for our own reconciliation purposes, which is purged after 365 days.</li>
     <li><strong>Uninstall:</strong> removing the app deletes all locally-stored data (photos, documents, records) from your device, unless you've saved an exported backup elsewhere.</li>
   </ul>
 
@@ -122,7 +122,7 @@
 </main>
 
 <footer>
-  © 2026 Bluelanternstudios. All rights reserved.
+  © 2026 Bluelanternstudio. All rights reserved.
 </footer>
 
 </body>
