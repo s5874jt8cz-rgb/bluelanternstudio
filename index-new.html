@@ -217,6 +217,24 @@
       text-underline-offset: 0.2em;
     }
     .links a:hover, .links a:focus-visible { color: #fff; }
+
+    /* Phones and small tablets: the fixed-size text no longer fits the shrunken picture,
+       so the page gets extra height and the Download and legal links stack with room. */
+    @media (max-width: 900px) {
+      .stage { aspect-ratio: 1080 / 2760; }
+      .download { top: calc(var(--u) * 1895); gap: 0.6rem 1.6rem; }
+      .download span { font-size: clamp(1.6rem, 6vw, 2.6rem); }
+      .download a, .download a:visited { font-size: clamp(1.15rem, 4vw, 1.6rem); }
+      .links {
+        top: calc(var(--u) * 2190);
+        bottom: auto;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.2rem;
+        font-size: clamp(1.05rem, 3.6vw, 1.4rem);
+      }
+      .links a { display: inline-flex; align-items: center; min-height: 44px; }
+    }
   </style>
 </head>
 <body>

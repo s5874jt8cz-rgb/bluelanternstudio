@@ -195,6 +195,12 @@
 
     /* Narrow screens: headline on top, bigger crop of the picture, cards underneath. */
     @media (max-width: 700px) {
+      /* Phone only: a very soft yellow to orange glow behind everything. */
+      html {
+        min-height: 100%;
+        background: linear-gradient(180deg, #fffbe3 0%, #fff0c4 38%, #ffe0a8 72%, #ffd29a 100%) no-repeat;
+        background-size: 100% 100%;
+      }
       .stage { display: flex; flex-direction: column; gap: 16px; padding-bottom: 8px; }
       .hero {
         position: static;
