@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Auto-Mobile | Drive Smarter. Stay Ready.</title>
+  <meta name="description" content="Auto-Mobile is a vehicle maintenance app: fuel, maintenance, documents, parking and warning lights in one place.">
+  <meta name="theme-color" content="#000b20">
+  <style>
+    @font-face { font-family: "Manrope"; font-weight: 500; font-display: swap; src: url("fonts/Manrope-Medium.ttf") format("truetype"); }
+    @font-face { font-family: "Manrope"; font-weight: 700; font-display: swap; src: url("fonts/Manrope-Bold.ttf") format("truetype"); }
+    @font-face { font-family: "Manrope"; font-weight: 800; font-display: swap; src: url("fonts/Manrope-ExtraBold.ttf") format("truetype"); }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background: #000b20;
+    }
+
+    body { font-family: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
+
+    /* The stage is drawn on a 1080 x 2340 canvas and scales with the page width.
+       --u is one canvas pixel. */
+    .stage {
+      --u: calc(100cqw / 1080);
+      container-type: inline-size;
+      position: relative;
+      width: 100%;
+      max-width: 1080px;
+      aspect-ratio: 1080 / 2340;
+      margin: 0 auto;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse 70% 30% at 50% 22%, #0a2150 0%, rgba(10, 33, 80, 0) 70%),
+        linear-gradient(#020a1c 0%, #000b20 30%, #00112e 70%, #000b20 100%);
+    }
+
+    .scene, .floor {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      display: block;
+      pointer-events: none;
+    }
+    .scene {
+      top: calc(var(--u) * 540);
+      height: calc(var(--u) * 200);
+      -webkit-mask-image: linear-gradient(to bottom, transparent, #000 25%, #000 60%, transparent);
+      mask-image: linear-gradient(to bottom, transparent, #000 25%, #000 60%, transparent);
+    }
+    .floor {
+      top: calc(var(--u) * 1895);
+      height: calc(var(--u) * 445);
+      -webkit-mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 80%, transparent);
+      mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 80%, transparent);
+    }
+
+    .glow {
+      position: absolute;
+      left: 50%;
+      top: calc(var(--u) * 900);
+      width: calc(var(--u) * 1000);
+      height: calc(var(--u) * 1000);
+      transform: translateX(-50%);
+      background: radial-gradient(circle, rgba(36, 107, 253, 0.28) 0%, rgba(36, 107, 253, 0) 62%);
+      pointer-events: none;
+    }
+
+    .brand {
+      position: absolute;
+      left: calc(var(--u) * 210);
+      top: calc(var(--u) * 80);
+      width: calc(var(--u) * 660);
+      height: auto;
+      display: block;
+      mix-blend-mode: screen;
+    }
+
+    h1 {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: calc(var(--u) * 290);
+      margin: 0;
+      text-align: center;
+      color: #fff;
+      font-weight: 800;
+      font-size: calc(var(--u) * 92);
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      text-shadow: 0 calc(var(--u) * 6) calc(var(--u) * 30) rgba(0, 0, 0, 0.55);
+    }
+
+    /* Phones */
+    .phone {
+      position: absolute;
+      background: linear-gradient(145deg, #1a1d23, #050608);
+      box-shadow:
+        inset 0 0 0 calc(var(--u) * 3) #8a94a1,
+        inset 0 0 0 calc(var(--u) * 10) #0b0c0f,
+        0 calc(var(--u) * 30) calc(var(--u) * 70) rgba(0, 0, 0, 0.6),
+        0 0 calc(var(--u) * 60) rgba(36, 107, 253, 0.25);
+    }
+    .screen {
+      position: absolute;
+      inset: calc(var(--u) * 13);
+      overflow: hidden;
+      background: #030a1c;
+    }
+    .screen img {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: calc(100% - var(--u) * 60);
+      object-fit: cover;
+      object-position: top;
+      display: block;
+    }
+    .status {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: calc(var(--u) * 60);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 calc(var(--u) * 34) 0 calc(var(--u) * 40);
+      color: #fff;
+      font-weight: 700;
+      font-size: calc(var(--u) * 21);
+    }
+    .status svg { height: calc(var(--u) * 16); width: auto; display: block; fill: #fff; }
+    .island {
+      position: absolute;
+      left: 50%;
+      top: calc(var(--u) * 12);
+      width: calc(var(--u) * 120);
+      height: calc(var(--u) * 34);
+      transform: translateX(-50%);
+      border-radius: calc(var(--u) * 20);
+      background: #000;
+    }
+
+    .phone.main {
+      left: calc(var(--u) * 287);
+      top: calc(var(--u) * 752);
+      width: calc(var(--u) * 497);
+      height: calc(var(--u) * 1110);
+      border-radius: calc(var(--u) * 68);
+      z-index: 3;
+    }
+    .phone.main .screen { border-radius: calc(var(--u) * 56); }
+
+    .phone.side {
+      top: calc(var(--u) * 840);
+      width: calc(var(--u) * 420);
+      height: calc(var(--u) * 940);
+      border-radius: calc(var(--u) * 64);
+      z-index: 2;
+    }
+    .phone.side .screen { border-radius: calc(var(--u) * 52); }
+    .phone.left {
+      left: calc(var(--u) * -75);
+      transform: perspective(calc(var(--u) * 1800)) rotateY(33deg);
+      transform-origin: 50% 50%;
+    }
+    .phone.right {
+      left: calc(var(--u) * 735);
+      transform: perspective(calc(var(--u) * 1800)) rotateY(-33deg);
+      transform-origin: 50% 50%;
+    }
+
+    .download {
+      position: absolute;
+      left: 4%;
+      right: 4%;
+      top: calc(var(--u) * 1888);
+      z-index: 5;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: center;
+      gap: 0.5rem 1.6rem;
+      text-align: center;
+      font-weight: 700;
+      font-size: calc(clamp(0.9rem, 2.2vw, 1.25rem) + 3pt);
+    }
+    .download span { color: #fff; font-size: calc(var(--u) * 48); line-height: 1.1; flex-basis: 100%; }
+    .download a, .download a:visited {
+      color: #FFDEAD;
+      text-decoration: underline;
+      text-underline-offset: 0.2em;
+    }
+    .download a:hover, .download a:focus-visible { color: #fff; }
+
+    .links {
+      position: absolute;
+      left: 4%;
+      right: 4%;
+      bottom: 10%;
+      z-index: 5;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem 2rem;
+      text-align: center;
+      font-size: calc(clamp(0.9rem, 2.2vw, 1.25rem) + 3pt);
+    }
+    .links a, .links a:visited {
+      color: #FFDEAD;
+      text-decoration: underline;
+      text-underline-offset: 0.2em;
+    }
+    .links a:hover, .links a:focus-visible { color: #fff; }
+  </style>
+</head>
+<body>
+  <main class="stage">
+    <img class="scene" src="img/scene.jpg" alt="" aria-hidden="true">
+    <img class="floor" src="img/floor.jpg" alt="" aria-hidden="true">
+    <div class="glow" aria-hidden="true"></div>
+
+    <img class="brand" src="img/logo-mark.png" alt="Auto-Mobile. Manage. Maintain. Drive confidently.">
+    <h1>Drive Smarter.<br>Stay Ready.</h1>
+
+    <div class="phone side left">
+      <div class="screen">
+        <div class="status" aria-hidden="true"><span>9:41</span></div>
+        <img src="img/shot-maintenance.jpg" alt="Auto-Mobile Maintenance Tracking screen: add a record, add a reminder, history and financials.">
+      </div>
+    </div>
+
+    <div class="phone side right">
+      <div class="screen">
+        <div class="status" aria-hidden="true"><span>9:41</span></div>
+        <img src="img/shot-warning.jpg" alt="Auto-Mobile Warning Light Library screen explaining the Check Engine and Oil Pressure lights.">
+      </div>
+    </div>
+
+    <div class="phone main">
+      <div class="screen">
+        <div class="status" aria-hidden="true">
+          <span>9:41</span>
+          <svg viewBox="0 0 60 16"><rect x="0" y="10" width="4" height="6" rx="1"/><rect x="7" y="7" width="4" height="9" rx="1"/><rect x="14" y="4" width="4" height="12" rx="1"/><rect x="21" y="0" width="4" height="16" rx="1"/><rect x="34" y="1" width="26" height="14" rx="4" fill="none" stroke="#fff" stroke-width="1.6"/><rect x="36" y="3" width="19" height="10" rx="2.5"/></svg>
+        </div>
+        <div class="island" aria-hidden="true"></div>
+        <img src="img/shot-dashboard.jpg" alt="Auto-Mobile Dashboard with maintenance reminders and shortcuts to vehicles, documents, accidents, parts, trips, VIN decoder and warning lights.">
+      </div>
+    </div>
+
+    <nav class="download" aria-label="Download Auto-Mobile">
+      <span>Download</span>
+      <a href="https://play.google.com/store/apps/details?id=com.automobile1app.app" rel="noopener">Android</a>
+      <a href="https://apps.apple.com/ca/app/auto-mobile-vehicle-tracker/id6802762195" rel="noopener">iOS</a>
+    </nav>
+
+    <nav class="links" aria-label="Legal information">
+      <a href="delete-account.html">Delete Account</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms-and-conditions.html">Term &amp; Conditions</a>
+    </nav>
+  </main>
+</body>
+</html>
