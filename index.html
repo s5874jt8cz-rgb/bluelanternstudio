@@ -37,8 +37,93 @@
       height: auto;
     }
 
+    /* Stone pillars behind the cards: capital, shaded fluted shaft, stepped base. */
+    .col {
+      position: absolute;
+      top: 0;
+      height: 78%;
+      width: 12%;
+      clip-path: inset(-6cqw -6cqw 0 -6cqw);
+      transform: translateX(-50%);
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      pointer-events: none;
+      filter: drop-shadow(1.2cqw 1.6cqw 2.4cqw rgba(58, 46, 24, 0.2));
+    }
+    .col.left { left: 14.4%; }
+    .col.right { left: 87.5%; }
+    .col::after {
+      display: none;
+      content: "";
+      position: absolute;
+      left: -22%;
+      right: -22%;
+      bottom: -1.6cqw;
+      height: 3cqw;
+      background: radial-gradient(ellipse at 50% 40%, rgba(32, 22, 10, 0.42), rgba(32, 22, 10, 0) 68%);
+      z-index: -1;
+    }
+    .col i { display: block; }
+    .cap { position: relative; width: 100%; height: 4.6cqw; flex: none; }
+    .cap::before {
+      content: "";
+      position: absolute;
+      left: -7%;
+      width: 114%;
+      top: 0;
+      height: 1.5cqw;
+      border-radius: 0.35cqw;
+      background: linear-gradient(180deg, rgba(252, 247, 228, 0.92), rgba(214, 203, 168, 0.88));
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), inset 0 -1px 0 rgba(90, 76, 48, 0.35), 0 0.3cqw 0.8cqw rgba(58, 46, 24, 0.22);
+    }
+    .cap::after {
+      content: "";
+      position: absolute;
+      left: 3%;
+      width: 94%;
+      top: 1.4cqw;
+      height: 3.2cqw;
+      clip-path: polygon(0 0, 100% 0, 88% 62%, 86% 100%, 14% 100%, 12% 62%);
+      background: linear-gradient(90deg, rgba(120, 104, 68, 0.55), rgba(250, 244, 222, 0.78) 36%, rgba(214, 203, 168, 0.75) 62%, rgba(110, 94, 60, 0.6));
+    }
+    .shaft {
+      flex: 1;
+      width: 84%;
+      background:
+        linear-gradient(90deg, rgba(64, 52, 28, 0.4) 0%, rgba(64, 52, 28, 0.12) 13%, rgba(255, 251, 236, 0.3) 33%, rgba(255, 251, 236, 0.08) 55%, rgba(64, 52, 28, 0.16) 82%, rgba(64, 52, 28, 0.42) 100%),
+        repeating-linear-gradient(90deg, rgba(86, 72, 44, 0.26) 0, rgba(86, 72, 44, 0) 0.42cqw, rgba(255, 251, 238, 0.22) 0.62cqw, rgba(86, 72, 44, 0.26) 1.15cqw),
+        rgba(236, 226, 196, 0.4);
+      box-shadow: inset 0 0.5cqw 0.8cqw rgba(58, 46, 24, 0.18);
+    }
+    .col .base { display: none; }
+    .base::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 100%;
+      top: 0;
+      height: 1.5cqw;
+      border-radius: 0.8cqw 0.8cqw 0.3cqw 0.3cqw;
+      background: linear-gradient(90deg, rgba(120, 104, 68, 0.55), rgba(250, 244, 222, 0.82) 40%, rgba(214, 203, 168, 0.8) 64%, rgba(110, 94, 60, 0.6));
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65);
+    }
+    .base::after {
+      content: "";
+      position: absolute;
+      left: -9%;
+      width: 118%;
+      bottom: 0;
+      height: 2.3cqw;
+      border-radius: 0.4cqw;
+      background: linear-gradient(180deg, rgba(250, 244, 222, 0.9), rgba(206, 194, 156, 0.9));
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), inset 0 -1px 0 rgba(90, 76, 48, 0.4);
+    }
+
     .card {
       position: absolute;
+      z-index: 3;
       top: 26.5%;
       width: 20%;
       aspect-ratio: 2.9;
@@ -63,8 +148,8 @@
       border-radius: 1.2cqw;
       -webkit-backdrop-filter: blur(6px);
       backdrop-filter: blur(6px);
-      box-shadow: 0 0.6cqw 2cqw rgba(16, 34, 63, 0.18);
-      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 0 0 0.4cqw rgba(255, 255, 255, 0.16), inset 0 1px 1px rgba(255, 255, 255, 0.6), 0 1.2cqw 3cqw rgba(58, 46, 24, 0.16);
+      transition: background 0.7s cubic-bezier(0.32, 0.72, 0, 1), transform 0.7s cubic-bezier(0.32, 0.72, 0, 1), box-shadow 0.7s cubic-bezier(0.32, 0.72, 0, 1);
     }
     .card small {
       font-size: 0.5em;
@@ -90,6 +175,7 @@
     /* Narrow screens: the cards would be too small on the picture, so they sit under it. */
     @media (max-width: 700px) {
       .stage { display: flex; flex-direction: column; gap: 16px; padding-bottom: 24px; }
+      .col { display: none; }
       .card {
         position: static;
         transform: none;
@@ -110,6 +196,8 @@
 <body>
   <main class="stage">
     <img src="img/hub-desk.jpg" width="2400" height="1260" alt="A laptop on a wooden desk showing the Blue Lantern Studio logo, a glowing lantern in a golden arch, in front of a soft watercolor jungle.">
+    <div class="col left" aria-hidden="true"><i class="cap"></i><i class="shaft"></i><i class="base"></i></div>
+    <div class="col right" aria-hidden="true"><i class="cap"></i><i class="shaft"></i><i class="base"></i></div>
     <a class="card left" href="index-new.html"><span>Auto-Mobile</span><small>(click here)</small></a>
     <a class="card right" href="10tables.html"><span>10Tables</span><small>(click here)</small></a>
   </main>
