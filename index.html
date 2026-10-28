@@ -58,6 +58,14 @@ h1 {
 .dl b, .dl a { font-weight: 700; color: #000; text-underline-offset: 0.2em; }
 
 .copy { margin: 0; padding: 0 16px 12px; text-align: center; font-weight: 500; font-size: 0.9rem; letter-spacing: 0.06em; }
+@media (min-width: 701px) {
+  .bar { padding-top: clamp(16px, 3vh, 32px); }
+  .logo { width: min(300px, 19vh); }
+  main { gap: 10px; }
+  .hero { gap: 8px; }
+  .sub { margin-top: 16px; }
+  .tile { min-height: 72px; }
+}
 </style></head>
 <body>
 <header class="bar">
