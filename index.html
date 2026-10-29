@@ -22,17 +22,17 @@ html, body { margin: 0; }
 html { background: #000; }
 body { min-height: 100dvh; display: flex; flex-direction: column; font-family: "Sora", sans-serif; color: #000; }
 /* The wall picture stays put behind everything and always fills the screen. */
-body::before { content: ""; position: fixed; inset: 0; z-index: -1; background: url(img/landing-bg-brick.jpg) 50% 50% / cover no-repeat; transform: scale(0.95); }
+body::before { content: ""; position: fixed; inset: 0; z-index: -1; background: linear-gradient(rgba(10, 6, 4, 0.35), rgba(10, 6, 4, 0.55)), url(img/landing-bg-sofa.jpg) 50% 50% / cover no-repeat; transform: scale(0.95); }
 
 a:focus-visible { outline: 3px solid #fff; outline-offset: 3px; box-shadow: 0 0 0 6px #000; }
 
 .bar { position: relative; z-index: 2; display: flex; justify-content: space-between; align-items: flex-start; padding: calc(clamp(56px, 9vh, 96px) + 48px + 1.5rem) 6% 0; }
-.corner { display: flex; flex-direction: column; align-items: center; gap: 8px; min-width: 64px; text-decoration: none; color: #000; font-weight: 500; font-size: 0.8rem; text-align: center; }
+.corner { display: flex; flex-direction: column; align-items: center; gap: 8px; min-width: 64px; text-decoration: none; color: #d2bc9b; font-weight: 500; font-size: 0.8rem; text-align: center; }
 .ico { width: 64px; height: 64px; border-radius: 50%; background: #2b2b2b; color: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3); }
 .corner:hover .ico, .corner:focus-visible .ico { background: #000; }
 
 main { margin-top: 1rem; flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px; padding: 0 16px 16px; }
-.panel { width: min(100%, 820px); display: flex; flex-direction: column; align-items: center; gap: 24px; padding: clamp(16px, 3vw, 32px); padding-block: max(4px, calc(clamp(16px, 3vw, 32px) - 0.75rem)); padding-bottom: calc(max(4px, calc(clamp(16px, 3vw, 32px) - 0.75rem)) + 1.5rem); background: rgba(140, 190, 255, 0.15); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border-radius: 22px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25); }
+.panel { width: min(100%, 820px); display: flex; flex-direction: column; align-items: center; gap: 24px; padding: clamp(16px, 3vw, 32px); padding-block: max(4px, calc(clamp(16px, 3vw, 32px) - 0.75rem)); padding-bottom: calc(max(4px, calc(clamp(16px, 3vw, 32px) - 0.75rem)) + 1.5rem); background: rgba(24, 18, 16, 0.42); border: 1px solid rgba(255, 255, 255, 0.18); -webkit-backdrop-filter: blur(14px) saturate(1.2); backdrop-filter: blur(14px) saturate(1.2); border-radius: 22px; box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 18px 44px rgba(20, 8, 4, 0.45); }
 .hero { display: flex; flex-direction: column; align-items: center; gap: 14px; }
 .panel .hero { margin-top: -1.5rem; }
 .logo { width: clamp(225px, 35vw, 375px); height: auto; margin-bottom: 1.5rem; }
@@ -40,28 +40,29 @@ h1 {
   margin: 0; padding: 0 4vw; text-align: center; text-transform: uppercase; text-wrap: balance;
   font-family: "Anton", Impact, sans-serif; font-weight: 400; line-height: 0.98;
   font-size: clamp(1.6rem, 6vw, 4.5rem); color: #d6402a;
-  text-shadow: 0 1px 0 #7a2418, 0 2px 0 #7a2418, 0 3px 0 #7a2418, 0 4px 0 #7a2418, 0 5px 0 #7a2418, 0 6px 0 #4a140d, 0 7px 1px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 1px 0 #5a1a10, 0 2px 0 #5a1a10, 0 3px 0 #5a1a10, 0 4px 0 #3a0f09, 0 5px 0 #3a0f09, 0 6px 0 #000, 0 7px 1px rgba(0, 0, 0, 0.8), 0 9px 6px rgba(0, 0, 0, 0.35);
 }
 .big { font-size: 1.25em; }
-.sub { margin: 3rem 0 0; font-weight: 500; text-align: center; text-wrap: balance; font-size: clamp(1.1rem, 3vw, 2rem); }
+.sub { margin: 3rem 0 0; color: #d2bc9b; font-weight: 500; text-align: center; text-wrap: balance; font-size: clamp(1.1rem, 3vw, 2rem); }
 
 .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; width: min(100%, 760px); }
 .col { display: flex; flex-direction: column; align-items: center; gap: 8px; }
 .tile {
   width: 100%; min-height: 96px; padding: 12px 8px;
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
-  text-align: center; text-decoration: none; color: #000;
-  background: rgba(11, 42, 69, 0.06); border: 1px solid rgba(11, 42, 69, 0.4); border-radius: 14px;
+  text-align: center; text-decoration: none; color: #d2bc9b;
+  background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.28); border-radius: 14px;
   -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
 }
-.tile:hover, .tile:focus-visible { background: rgba(11, 42, 69, 0.14); }
-.tile b { font-weight: 700; font-size: clamp(0.8rem, 2.4vw, 1.7rem); letter-spacing: 0.1em; text-transform: uppercase; }
-.tile span { font-weight: 500; font-size: clamp(0.65rem, 1.5vw, 1rem); letter-spacing: 0.06em; }
-.dl { margin: 0; text-align: center; font-size: clamp(1.1rem, 3.2vw, 2rem); letter-spacing: 0.04em; }
-.dl { white-space: nowrap; }
-.dl b, .dl a { font-weight: 700; color: #000; text-underline-offset: 0.2em; }
+.tile:hover, .tile:focus-visible { background: rgba(255, 255, 255, 0.18); }
+.tile b { font-weight: 700; font-size: clamp(0.95rem, 2.4vw, 1.7rem); letter-spacing: 0.1em; text-transform: uppercase; }
+.tile span { font-weight: 500; font-size: clamp(0.8rem, 1.5vw, 1rem); letter-spacing: 0.06em; }
+.dl { margin: 0; color: #d2bc9b; text-align: center; font-size: clamp(1.1rem, 3.2vw, 2rem); letter-spacing: 0.04em; }
+.dl { white-space: normal; font-size: clamp(0.9rem, 3.2vw, 2rem); }
+.dl a { display: inline-block; padding: 12px 8px; min-height: 44px; }
+.dl b, .dl a { font-weight: 700; color: #d2bc9b; text-underline-offset: 0.2em; }
 
-.copy { margin: 0; padding: 0 16px 12px; text-align: center; font-weight: 500; font-size: 0.9rem; letter-spacing: 0.06em; }
+.copy { margin: 0; color: #d2bc9b; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6); padding: 0 16px 12px; text-align: center; font-weight: 500; font-size: 0.9rem; letter-spacing: 0.06em; }
 @media (min-width: 701px) {
   .bar { padding-top: calc(clamp(16px, 3vh, 32px) + 1.5rem); }
   .logo { width: min(375px, 24vh); }
@@ -70,15 +71,20 @@ h1 {
   .sub { margin-top: 3rem; }
   .tile { min-height: 72px; }
 }
+@media (max-width: 700px) {
+  .bar { padding-top: 16px; }
+  .sub { margin-top: 1rem; }
+  .logo { margin-bottom: 0.5rem; }
+}
 </style></head>
 <body>
 <header class="bar">
-  <a class="corner" href="terms%20of%20service%202.html"><span class="ico"><svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M8 3h11l6 6v20H8z"/><path d="M19 3v6h6M12 15h9M12 20h9M12 25h6"/></svg></span>Terms of Service.</a>
-  <a class="corner" href="mailto:bluelanternstudio32@gmail.com" aria-label="Email us at bluelanternstudio32@gmail.com"><span class="ico"><svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M3 5h15a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H9l-4 3.5V17H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/><path d="M22 11h5a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-1v3.5L22 22h-6a2 2 0 0 1-2-2v-1"/></svg></span>Email us.</a>
+  <a class="corner" href="terms%20of%20service%202.html"><span class="ico"><svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M8 3h11l6 6v20H8z"/><path d="M19 3v6h6M12 15h9M12 20h9M12 25h6"/></svg></span>Terms of Service</a>
+  <a class="corner" href="mailto:bluelanternstudio32@gmail.com" aria-label="Email us at bluelanternstudio32@gmail.com"><span class="ico"><svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M3 5h15a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H9l-4 3.5V17H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/><path d="M22 11h5a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-1v3.5L22 22h-6a2 2 0 0 1-2-2v-1"/></svg></span>Email us</a>
 </header>
 <main>
  <div class="panel">
-  <div class="hero"><img class="logo" src="img/logo-lantern-new.png" alt="Blue Lantern Studio logo"><h1>Small studio<br><span class="big">Big</span> imagination</h1><p class="sub">Choose an app to learn more.</p></div>
+  <div class="hero"><img class="logo" src="img/logo-lantern-tan.png" alt="Blue Lantern Studio logo"><h1>Small studio<br><span class="big">Big</span> imagination</h1><p class="sub">Choose an app to learn more.</p></div>
   <div class="cards">
     <div class="col">
       <a class="tile" href="index-new.html"><b>Auto-Mobile</b><span>Vehicle maintenance tracker</span></a>
@@ -86,7 +92,7 @@ h1 {
     </div>
     <div class="col">
       <a class="tile" href="10tables.html"><b>10Tables</b><span>A new game, coming soon</span></a>
-      <p class="dl">Download:<br><b>Coming soon</b></p>
+      <p class="dl">Download:<br><b style="display: inline-block; margin-top: 0.8rem;">Coming soon</b></p>
     </div>
   </div>
  </div>
