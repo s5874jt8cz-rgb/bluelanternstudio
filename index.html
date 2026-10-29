@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Blue Lantern Studio</title>
+  <link rel="icon" href="favicon.png">
   <meta name="description" content="Blue Lantern Studio is an independent studio making apps and games, starting with Auto-Mobile.">
   <meta name="theme-color" content="#000000">
   <link rel="canonical" href="https://bluelanternstudio.com/">
@@ -32,7 +33,7 @@ a:focus-visible { outline: 3px solid #fff; outline-offset: 3px; box-shadow: 0 0 
 .corner:hover .ico, .corner:focus-visible .ico { background: #000; }
 
 main { margin-top: 1rem; flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px; padding: 0 16px 16px; }
-.panel { width: min(100%, 820px); display: flex; flex-direction: column; align-items: center; gap: 24px; padding: clamp(16px, 3vw, 32px); padding-block: max(4px, calc(clamp(16px, 3vw, 32px) - 0.75rem)); padding-bottom: calc(max(4px, calc(clamp(16px, 3vw, 32px) - 0.75rem)) + 1.5rem); background: rgba(24, 18, 16, 0.42); border: 1px solid rgba(255, 255, 255, 0.18); -webkit-backdrop-filter: blur(14px) saturate(1.2); backdrop-filter: blur(14px) saturate(1.2); border-radius: 22px; box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 18px 44px rgba(20, 8, 4, 0.45); }
+.panel { width: min(100%, 820px); display: flex; flex-direction: column; align-items: center; gap: 24px; --pad: max(4px, calc(clamp(16px, 3vw, 32px) - 0.75rem)); padding: clamp(16px, 3vw, 32px); padding-block: var(--pad); padding-bottom: calc(var(--pad) + 1.5rem); background: rgba(24, 18, 16, 0.42); border: 1px solid rgba(255, 255, 255, 0.18); -webkit-backdrop-filter: blur(14px) saturate(1.2); backdrop-filter: blur(14px) saturate(1.2); border-radius: 22px; box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 18px 44px rgba(20, 8, 4, 0.45); }
 .hero { display: flex; flex-direction: column; align-items: center; gap: 14px; }
 .panel .hero { margin-top: -1.5rem; }
 .logo { width: clamp(225px, 35vw, 375px); height: auto; margin-bottom: 1.5rem; }
@@ -57,8 +58,8 @@ h1 {
 .tile:hover, .tile:focus-visible { background: rgba(255, 255, 255, 0.18); }
 .tile b { font-weight: 700; font-size: clamp(0.95rem, 2.4vw, 1.7rem); letter-spacing: 0.1em; text-transform: uppercase; }
 .tile span { font-weight: 500; font-size: clamp(0.8rem, 1.5vw, 1rem); letter-spacing: 0.06em; }
-.dl { margin: 0; color: #d2bc9b; text-align: center; font-size: clamp(1.1rem, 3.2vw, 2rem); letter-spacing: 0.04em; }
-.dl { white-space: normal; font-size: clamp(0.9rem, 3.2vw, 2rem); }
+.dl { margin: 0; color: #d2bc9b; text-align: center; font-size: clamp(0.9rem, 3.2vw, 2rem); letter-spacing: 0.04em; white-space: normal; }
+.dl .soon { display: inline-block; margin-top: 0.8rem; }
 .dl a { display: inline-block; padding: 12px 8px; min-height: 44px; }
 .dl b, .dl a { font-weight: 700; color: #d2bc9b; text-underline-offset: 0.2em; }
 
@@ -68,7 +69,6 @@ h1 {
   .logo { width: min(375px, 24vh); }
   main { gap: 10px; position: relative; top: -3rem; margin-top: 0; }
   .hero { gap: 8px; }
-  .sub { margin-top: 3rem; }
   .tile { min-height: 72px; }
 }
 @media (max-width: 700px) {
@@ -79,7 +79,7 @@ h1 {
 </style></head>
 <body>
 <header class="bar">
-  <a class="corner" href="terms%20of%20service%202.html"><span class="ico"><svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M8 3h11l6 6v20H8z"/><path d="M19 3v6h6M12 15h9M12 20h9M12 25h6"/></svg></span>Terms of Service</a>
+  <a class="corner" href="terms-of-service.html"><span class="ico"><svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M8 3h11l6 6v20H8z"/><path d="M19 3v6h6M12 15h9M12 20h9M12 25h6"/></svg></span>Terms of Service</a>
   <a class="corner" href="mailto:bluelanternstudio32@gmail.com" aria-label="Email us at bluelanternstudio32@gmail.com"><span class="ico"><svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M3 5h15a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H9l-4 3.5V17H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/><path d="M22 11h5a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-1v3.5L22 22h-6a2 2 0 0 1-2-2v-1"/></svg></span>Email us</a>
 </header>
 <main>
@@ -92,7 +92,7 @@ h1 {
     </div>
     <div class="col">
       <a class="tile" href="10tables.html"><b>10Tables</b><span>A new game, coming soon</span></a>
-      <p class="dl">Download:<br><b style="display: inline-block; margin-top: 0.8rem;">Coming soon</b></p>
+      <p class="dl">Download:<br><b class="soon">Coming soon</b></p>
     </div>
   </div>
  </div>
