@@ -42,11 +42,12 @@ h1 em { font-style:normal; color:var(--gold); }
 .soon { display:inline-block; margin-top:14px; min-height:44px; line-height:44px; font-size:.85rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); font-weight:600; }
 footer { padding:12px 0 24px; } .f { display:flex; flex-wrap:wrap; justify-content:space-between; font-size:.85rem; color:var(--muted); text-shadow:0 1px 3px rgba(0,0,0,.6); }
 .f nav { display:flex; flex-wrap:wrap; gap:0 20px; } .f a, .f p { min-height:44px; display:inline-flex; align-items:center; margin:0; text-decoration:none; } .f a:hover { color:var(--ink); }
-@media (max-width:700px){ body { background-position:62% 60%; } main { align-items:flex-start; } }
+.mbr { display:none; }
+@media (max-width:700px){ .mbr { display:inline; } header a.terms { line-height:1.3; } body { background-position:62% 60%; } main { align-items:flex-start; } }
 @media (prefers-reduced-motion:reduce){ * { transition:none !important; } }
 </style></head><body>
 <a class="skip" href="#main">Skip to content</a>
-<div class="wrap"><header><a class="terms" href="terms-of-service.html">Terms of Service</a><img src="img/logo-lantern-tan.png" alt="Blue Lantern Studio logo"><a class="mail" href="mailto:bluelanternstudio32@gmail.com">Email us</a></header></div>
+<div class="wrap"><header><a class="terms" href="terms-of-service.html">Terms of <br class="mbr">Service</a><img src="img/logo-lantern-tan.png" alt="Blue Lantern Studio logo"><a class="mail" href="mailto:bluelanternstudio32@gmail.com">Email us</a></header></div>
 <div class="wrap" style="flex:1;display:flex;width:100%"><main id="main" style="width:100%">
   <div class="panel">
     <h1>Small studio. <em>Big</em> imagination.</h1>
