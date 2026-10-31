@@ -34,6 +34,7 @@ h1 em { font-style:normal; color:var(--gold); }
 .lede { margin:16px 0 28px; color:var(--muted); font-size:1.05rem; line-height:1.5; }
 .app { display:block; padding:18px 20px; margin-top:12px; border:1px solid var(--edge); border-radius:12px; background:rgba(255,255,255,.05); transition:background .2s, border-color .2s; }
 .app:hover { background:rgba(255,255,255,.1); border-color:rgba(240,180,60,.6); }
+.ttl { display:flex; align-items:center; flex-wrap:wrap; gap:0 20px; } .ttl h2 { min-width:10.9rem; } .go { min-height:44px; display:inline-flex; align-items:center; color:var(--gold); font-weight:600; font-size:.95rem; text-underline-offset:.2em; transition:filter .2s; } .go:hover { filter:brightness(1.2); }
 .app h2 { margin:0; font-size:1.3rem; letter-spacing:-.01em; } .app h2 a { text-decoration:none; } .app h2 a::after { content:" \2192"; color:var(--gold); }
 .app p { margin:4px 0 0; color:var(--muted); font-size:.95rem; }
 .btns { display:flex; gap:8px; margin-top:14px; }
@@ -52,9 +53,9 @@ footer { padding:12px 0 24px; } .f { display:flex; flex-wrap:wrap; justify-conte
   <div class="panel">
     <h1>Small studio. <em>Big</em> imagination.</h1>
     <p class="lede">Independent apps and games, made with care. Pick one to learn more.</p>
-    <div class="app"><h2><a href="index-new.html">Auto-Mobile</a></h2><p>Vehicle history tracker</p>
+    <div class="app"><div class="ttl"><h2><a href="index-new.html">Auto-Mobile</a></h2><a class="go" href="index-new.html">Click here</a></div><p>Vehicle history tracker</p>
       <div class="btns"><a class="btn" href="https://play.google.com/store/apps/details?id=com.automobile1app.app">Android</a><a class="btn" href="https://apps.apple.com/ca/app/auto-mobile-vehicle-tracker/id6802762195">iOS</a></div></div>
-    <div class="app"><h2><a href="10tables.html">10Tables</a></h2><p>A new game</p><span class="soon">Coming soon</span></div>
+    <div class="app"><div class="ttl"><h2><a href="10tables.html">10Tables</a></h2><a class="go" href="10tables.html">Click here</a></div><p>A new game</p><span class="soon">Coming soon</span></div>
   </div>
 </main></div>
 <div class="wrap"><footer><div class="f"><p>&copy; 2026 BlueLanternStudio</p></div></footer></div>
